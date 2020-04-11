@@ -1,0 +1,2 @@
+   module Sunrise::Admin
+   end
