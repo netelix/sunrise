@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" prefix="og: http://ogp.me/ns#">
+  <head>
+    <%= render('layouts/marketing_scripts') %>
+    <%= render('layouts/meta') %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="<%= controller_path.gsub('/', '_') %> <%= action_name %> bg-light d-flex flex-grow-1 flex-column">
+    <%= render 'layouts/header' unless (content_for(:hide_nav) == 'true') %>
+  <main role="main" class="bg-light d-flex flex-grow-1 flex-column">
+    <%= yield %>
+  </main>
+  <div class="flash-container">
+    <%= render 'shared/flashes' %>
+  </div>
+  <%= render('layouts/bottom_scripts') %>
+  </body>
+</html>

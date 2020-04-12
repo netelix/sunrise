@@ -1,0 +1,9 @@
+<% content_for :title, t('shared.success') %>
+<%= content_tag(
+  :div,
+  t('shared.notice_message'),
+  class: 'alert alert-success',
+  role: 'alert',
+  'data-ajax-modal-reload-on-success' => '1000'
+  )
+%>

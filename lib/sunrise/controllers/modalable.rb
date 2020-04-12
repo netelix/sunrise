@@ -26,7 +26,7 @@ module Sunrise
           add_response_in_modal_header
           options =
             args.extract_options!.merge(
-              responder: Sunrise::Responder::AjaxModalResponder, layout: modal_layout
+              responder: AjaxModalResponder, layout: modal_layout
             )
           if options.key?(:location)
             head(:ok, options)

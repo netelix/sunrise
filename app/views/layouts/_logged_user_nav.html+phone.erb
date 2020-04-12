@@ -1,0 +1,7 @@
+<li class="nav-item">
+  <%= button_to t('layouts.header.logout'), destroy_session_path(current_user), class:'nav-link px-0', method: :delete %>
+  <div class="dropdown-divider"></div>
+  <% if current_user.admin? %>
+    <%= render 'admin/nav', link_class: 'nav-link' %>
+  <% end %>
+</li>

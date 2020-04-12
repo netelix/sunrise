@@ -16,6 +16,13 @@ module Sunrise
     autoload :TokenLogin,     'sunrise/controllers/token_login'
   end
 
+  module Models
+    autoload :Fixtureable,    'sunrise/models/fixtureable'
+    autoload :Nameable,       'sunrise/models/nameable'
+    autoload :Name,           'sunrise/models/name'
+    autoload :User,           'sunrise/models/user'
+  end
+
   # Scoped views. Since it relies on fallbacks to render default views, it's
   # turned off by default.
   mattr_accessor :scoped_views

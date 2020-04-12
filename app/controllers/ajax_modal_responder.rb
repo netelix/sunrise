@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-module Sunrise::Controllers
   # this class allows controller to respond with a modal layout
   class AjaxModalResponder < ActionController::Responder
     cattr_accessor :modal_layout
@@ -16,4 +15,3 @@ module Sunrise::Controllers
       render(*args)
     end
   end
-end

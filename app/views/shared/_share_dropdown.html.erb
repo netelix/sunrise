@@ -1,0 +1,50 @@
+<%
+  links = local_assigns[:links]
+  link_class = local_assigns[:link_class]
+%>
+
+<div class="dropdown <%= link_class %>">
+  <a class="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= image_tag('icons/share_rounded.svg') %>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right bg-light rounded-0 border-0 mt-3" aria-labelledby="share-social-dropdown-menu">
+    <% share_link_params = { class: 'text-dark text-decoration-none cursor-pointer', target: :blank } %>
+    <% if :whatsapp.in?(links) %>
+      <div class="dropdown-item d-sm-none">
+        <%= link_to "whatsapp://send?text=#{request.url}", share_link_params do %>
+          <%= share_icon('whatsapp') %>
+          Whatsapp
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if :facebook.in?(links) %>
+      <div class="dropdown-item">
+        <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", share_link_params do %>
+          <%= share_icon('facebook') %>
+          Facebook
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if :twitter.in?(links) %>
+    <div class="dropdown-item">
+      <%= link_to "https://twitter.com/intent/tweet?text=&url=#{request.url}&via=sportsplanner", share_link_params do %>
+        <%= share_icon('twitter') %>Twitter
+      <% end %>
+    </div>
+    <% end %>
+
+    <% if :copy.in?(links) %>
+    <div class="dropdown-item">
+      <a class="text-dark copy-to-clipboard cursor-pointor"
+         data-copied-label="<%= t('shared.copied') %>"
+         data-copied-label-target=".copy-label"
+         data-text="<%= request.url %>">
+        <%= share_icon('link') %> <span class="copy-label"><%= t('.copy_link') %></span>
+      </a>
+    </div>
+    <% end %>
+  </div>
+  </li>
+</div>

@@ -4,7 +4,7 @@
 
 module Sunrise
   module Controllers
-    class PasswordsController < Devise::PasswordsController
+    class Passwords < Devise::PasswordsController
       include Sunrise::Controllers::Modalable
 
       def ajax_modal_actions

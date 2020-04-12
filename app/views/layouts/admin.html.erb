@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.default_locale %>">
+  <head>
+    <title><%= app_name  %> - Admin</title>
+    <%= csrf_meta_tags %>
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/png;base64,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">
+
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="admin <%= controller_name %>-<%= action_name %>" id="admin-layout">
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <%= link_to app_name, root_path, class:"navbar-brand col-sm-3 col-md-2 mr-0" %>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <%= button_to t('layouts.header.logout'), destroy_session_path(current_user), class: 'nav-link bg-dark border-0', method: :delete %>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <%= render('admin/nav', link_class: 'nav-link') %>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+          <div id="flash-container" class="position-">
+            <%= render 'shared/flashes' %>
+          </div>
+        </div>
+        <%= yield %>
+      </main>
+    </div>
+  </div>
+  </body>
+</html>

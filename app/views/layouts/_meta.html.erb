@@ -1,0 +1,19 @@
+<title><%= content_for(:title) %></title>
+<link rel="shortcut icon" type="image/x-icon" href="<%= image_path("favicon.svg") %>">
+<link rel="apple-touch-icon" href="<%= image_path("icons/apple-touch-icon.png") %>">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="turbolinks-cache-control" content="no-preview">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="description" content="<%= content_for(:meta_description) %>" />
+<!-- Twitter Card data -->
+<meta name="twitter:card" value="<%= content_for(:share_description) || content_for(:meta_description) %>">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="<%= content_for(:title) %>" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="<%= request.url %>" />
+<meta property="og:image" content="<%= content_for(:share_image) %>" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:description" content="<%= content_for(:share_description) || content_for(:meta_description) %>" />

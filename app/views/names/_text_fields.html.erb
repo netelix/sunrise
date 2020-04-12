@@ -1,0 +1,25 @@
+<div class="name-text-fields">
+  <% lang = mutation_form.locales_with_current_first.first %>
+  <% wrapper_class = :translations %>
+  <% open = mutation_form.form.errors.any? %>
+
+  <%= form.text_field "name_#{lang}",
+                      hide_label: true,
+                      placeholder: t('.name_in', locale_name: t("locales.#{lang}")),
+                      id: "name_#{lang}",
+                      wrapper_class: 'mb-0' %>
+
+
+  <%= toggle_content(wrapper_class, open) do %>
+  <% mutation_form.locales_with_current_first.drop(1).each do |lang| %>
+      <%= form.text_field "name_#{lang}", id: "name_#{lang}",
+                          placeholder: t('.translation_in', locale_name: t("locales.#{lang}")),
+                          hide_label: true,
+                          wrapper_class: 'mb-1 mt-2' %>
+      <% end %>
+  <% end %>
+  <div class="text-red font-15 mb-3">
+    <%= toggle_button_show wrapper_class, open, t('.see') %>
+    <%= toggle_button_hide wrapper_class, open, t('.hide') %>
+  </div>
+</div>

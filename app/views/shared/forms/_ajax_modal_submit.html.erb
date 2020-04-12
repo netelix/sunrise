@@ -1,0 +1,4 @@
+<div class="mt-2">
+  <%= link_to t('shared.close_without_saving'), 'javascript:void();', class: 'mt-2 d-inline-block text-medium', 'data-dismiss'=>'modal' %>
+  <%= local_assigns[:form].submit t('shared.save'), class: 'btn btn-primary float-sm-right' %>
+</div>
