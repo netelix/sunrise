@@ -374,6 +374,7 @@ en:
       link_must_begin_with_http: "must begin with http:// or https://"
       already_a_session_for_this_datetime: "already a session for this date and time"
       not_in_options: "n'est pas dans les options proposées"
+      a_x_with_y_cant_be_delete: "A %{x} with %{y} can't be deleted"
       publish:
         one_image_at_least: Ajoutez au moins une image
         one_bedroom_at_least: Ajoutez au moins une chambre

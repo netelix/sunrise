@@ -315,6 +315,7 @@ fr:
       file_not_image: "Ce fichier n'est pas une image"
       already_in_use: "Est déjà pris"
       not_in_options: "N'est pas dans les options proposées"
+      a_x_with_y_cant_be_delete: "Un(e) %{x} avec des %{y} ne peut pas être supprimé"
       publish:
         one_image_at_least: Ajoutez au moins une image
         one_bedroom_at_least: Ajoutez au moins une chambre
