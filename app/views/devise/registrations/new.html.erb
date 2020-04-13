@@ -1,0 +1,75 @@
+<% content_for :extra_meta_tags do %>
+  <meta name="robots" content="noindex, nofollow">
+<% end %>
+<% content_for :dialog_class, 'authentication-modal' %>
+<div class='new_registration row justify-content-center text-center'>
+
+  <div class='col-12'>
+    <%= header_logo(amp: @amp) %>
+    <% if registering_as_an_agent? %>
+      <h2 class="mt-4 text-purple"><%= t('.title_for_agent').html_safe %></h2>
+    <% else %>
+      <h2 class="my-4"><%= t('.title') %></h2>
+      <p class="small text-purple">
+        <%= t('.are_you_professional') %>
+        <%= link_to t('.click_here'), new_agent_path, data: { modal: true }, class: 'text-blue' %>
+      </p>
+    <% end %>
+    <%= form_for(resource,
+                 as: resource_name,
+                 url: registration_path(resource_name),
+                 remote: true,
+                 authenticity_token: true,
+                 html: { class:'text-left py-2', data: { modal: true } }) do |f| %>
+      <% if registering_as_an_agent? %>
+        <input name="agent" value="true" type="hidden"/>
+      <% end %>
+      <div class="form-group">
+        <%= f.text_field :first_name,
+                         autofocus: true,
+                         autocomplete: "given-name",
+                         class: "form-control #{'is-invalid' if form_field_error(resource, :first_name)}",
+                         placeholder: t('.first_name')
+        %>
+        <%= form_field_error(resource, :first_name) %>
+      </div>
+      <div class="form-group">
+        <%= f.email_field :email,
+                          autocomplete: "email",
+                          class: "form-control #{'is-invalid' if form_field_error(resource, :email)}",
+                          placeholder: :email
+        %>
+        <%= form_field_error(resource, :email) %>
+      </div>
+      <% if registering_as_an_agent? %>
+        <div class="form-group">
+        <%= fields_for agency_resource do |agency| %>
+          <%= agency.text_field :name,
+                            class: "form-control #{'is-invalid' if form_field_error(resource, :agency_name) || form_field_error(resource, :agency)}",
+                            placeholder: t(".agency_name")
+          %>
+          <%= form_field_error(resource, :agency_name) %>
+          <%= form_field_error(resource, :agency) %>
+        </div>
+        <% end %>
+      <% end %>
+      <div class="form-group">
+        <%= f.password_field :password,
+                             class: "form-control #{'is-invalid' if form_field_error(resource, :password)}",
+                             placeholder: t('.password', num: 5) %>
+        <%= form_field_error(resource, :password) %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('.sign_up'), class: "btn btn-primary btn-block #{'btn-purple' if registering_as_an_agent?}" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+    <% if registering_as_an_agent? %>
+      <b>
+        <%= t('.are_you_particular') %>
+        <%= link_to t('.click_here'), new_user_path, data: { modal: true } %>
+      </b>
+    <% end %>
+  </div>
+</div>

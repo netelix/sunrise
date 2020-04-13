@@ -23,6 +23,23 @@ module Sunrise
     autoload :User,           'sunrise/models/user'
   end
 
+  module SpecHelpers
+
+    autoload :DeviseFeature,   'sunrise/spec_helpers/devise_feature'
+    autoload :UserDevices,     'sunrise/spec_helpers/user_devices'
+    autoload :ModalForm,       'sunrise/spec_helpers/modal_form'
+
+    if Rails.env.test?
+      require 'sunrise/spec_helpers/user_devices'
+      require 'sunrise/spec_helpers/devices_helper'
+      require 'sunrise/spec_helpers/feature_spec_helpers'
+      require 'sunrise/spec_helpers/sidekiq'
+      require 'sunrise/spec_helpers/summernote_helper'
+      require 'sunrise/spec_helpers/save_screenshot_on_failure'
+      require 'sunrise/spec_helpers/wait_for_ajax'
+    end
+  end
+
   # Scoped views. Since it relies on fallbacks to render default views, it's
   # turned off by default.
   mattr_accessor :scoped_views

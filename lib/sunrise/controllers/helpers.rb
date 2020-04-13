@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'browser'
 
 module Sunrise
   module Controllers
@@ -7,6 +8,8 @@ module Sunrise
       extend ActiveSupport::Concern
 
       included do
+        helper_method :browser
+
         def switch_locale(&action)
           locale = params[:locale] || I18n.default_locale
           I18n.with_locale(locale, &action)
@@ -42,6 +45,11 @@ module Sunrise
           unless request.host == ENV['DOMAIN']
             redirect_to "https://#{ENV['DOMAIN']}"
           end
+        end
+
+        def browser
+          @browser ||=
+            Browser.new(request.user_agent)
         end
       end
 

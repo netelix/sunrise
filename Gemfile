@@ -44,23 +44,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'sidekiq'
-gem 'kaminari'
-gem 'browser'
-gem 'font-awesome-rails'
-gem 'bootstrap_form', '~> 4.0'
-gem 'mutations'
-gem 'i18n'
-gem 'rails-i18n', '~> 5.1'
-gem 'cancancan'
-
-gem 'devise'
-gem 'devise-i18n'
-gem 'jquery-rails'
-gem 'pg'
-gem 'route_translator'
-gem 'jquery-ui-rails'
-
 
 group :development, :test do
   gem 'pry-rails'

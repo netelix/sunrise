@@ -1,0 +1,389 @@
+en:
+  locales:
+    fr: French
+    en: English
+    es: Spanish
+  shared:
+    save: Save
+    close_without_saving: Close without saving
+    information_missing: Information manquante
+    confirm_delete_message: Êtes vous sûr de vouloir supprimer cet élément ?
+    copied: "Copied !"
+    copy_link: Copy link
+    by: "by %{name}"
+    today: today
+    tomorrow: tomorrow
+    num_review:
+      zero: "0 avis"
+      one: "1 avis"
+      other: "%{count} avis"
+    error_message: Les modifications n'ont pas été enregistrées. Veuillez corriger les erreurs ci-dessous
+    notice_message: Les modifications ont bien été enregistrées
+    success: Succès
+    access_denied:
+      title: Accès refusé
+      access_denied_for_this_resource: Vous ne disposez pas des autorisations nécéssaires pour accèder à cette ressource
+    in_zone: in %{zone}
+  layouts:
+    header:
+      logout: Logout
+    application:
+      sign_in: Sign in
+    install_app_modal:
+      install_sport_planner: Install SportsPlanner
+      install_on_your_screen: Install this application on your home screen for quick and easy access when you’re on the go
+      tap_icon_and_then: 'Just tap %{icon} then “Add to Home Screen”'
+  admin:
+    nav:
+      users: Utilisateurs
+    users:
+      index:
+        num_incoming_sessions:
+          zero: no incoming session
+          one: 1 incoming session
+          other: '%{count} incoming sessions'
+      edit:
+        title_new: Créer un utilisateur
+        title_edit: Modifier l'utilisateur
+    sports:
+      index:
+      edit:
+        title_new: New sport
+        title_edit: Edit sport
+    live_sessions:
+      index:
+      edit:
+        title_new: New event for %{username}
+        title_edit: Edit %{username} event
+  names:
+    text_fields:
+      name_in: Nom en %{locale_name}
+      translation_in: Traduction en %{locale_name}
+      see: Traductions
+      hide: Masquer les traductions
+  devise:
+    sessions:
+      new:
+        title: Connectez-vous à votre compte
+        login: Connexion
+        email: Adresse email
+        password: Mot de passe
+      already_logged_in:
+        title: Vous êtes déjà connecté
+        reload_the_page_to_refresh: Rafraichissez la page pour continuer
+        reload_page: Rafraichir la page
+    passwords:
+      new:
+        title: Réinitialisez votre mot de passe
+        email: Votre adresse email
+        send_me_password_instructions: "Recevoir le lien de ré-initialisation"
+      edit:
+        title: Créer un nouveau mot de passe
+        save: Enregistrer
+    shared:
+      links:
+        forgot_your_password: Mot de passe oublié ?
+        have_already_an_account: Vous avez déjà un compte ?
+        login: Se connecter
+        sign_up: Créer un compte
+        no_account_yet: Vous n'avez pas de compte ?
+        didnt_receive_confirmation_instructions: Vous n'avez pas reçu l'email ?
+    mailer:
+      reset_password_instructions:
+        hi_there: Bonjour %{name}
+        here_come_the_link_to_reset: Vous trouverez ci-après le lien vous permettant de réinitialiser votre mot de passe
+        reset_password: Réinitialiser votre mot de passe
+        if_you_did_not_ask_for_it: Si vous n'êtes pas à l'origine de cette demande, veuillez ignorer cet email
+  live_sessions:
+    index:
+      title: Your Live Sport Guide -  Select a free live sport session for %{date}
+      meta_description: "Discover more than 100 live free sports sessions for %{date} with a coach : Fitness, Yoga, Hitt, Pilates, Crossfit..."
+      no_live_sport_yet: No sports live yet
+      you_are_a_coach: You are coach and you want to propose an event ?
+      you_want_to_propose: You want to propose an event ?
+      contact_us: Contact us
+    follow_us:
+      follow_us: Follow us
+      to_keep_up: to keep up with all sessions
+    show:
+      title: Your Live Sport Guide -  Free %{sport} Session
+      meta_description: "Join the free %{sport} session the %{start_date} at %{start_time} provided by %{username}."
+      head:
+        start_in: Start in
+      share:
+        share_session: Share session
+      body:
+        live_on_platform: "Live on %{platform}"
+        session: "%{sport_name} session"
+        add_to_calendar: Add to calendar
+        access_one_hour_before: Access to session available 1 hour before the start
+      app_message:
+        facebook: Live is accessible on Facebook app
+        instagram: Live is only accessible from Instagram app
+  activerecord:
+    users:
+      email: Email
+      username: Nom d'utilisateur
+      fname: Prénom
+      lname: Nom
+    sports:
+      category: Catégorie
+      categories:
+        cardio: Cardio
+        body_building: Musculation
+        well_being: Bien être
+        dance: Dance
+    live_sessions:
+      medias:
+        facebook: facebook
+        instagram: instagram
+        youtube: youtube
+        other: other
+      duration_in_minutes: '%{minutes}mn'
+      date: Date
+      time: Time (GMT-00)
+      link: Link (starting with https://...)
+      coach_name: Coach name
+    errors:
+      messages:
+        record_invalid: "La validation a échoué : %{errors}"
+        restrict_dependent_destroy:
+          has_one:
+            Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+            dépendant(e) existe
+          has_many:
+            Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+            dépendants existent
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+    prompts:
+      second: Second
+      minute: Minute
+      hour: Hour
+      day: Day
+      month: Month
+      year: Year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      very_short: "%d %b %Hh%M"
+      short: "%d %b"
+      short_complete: "%a. %d %b %Y %H:%M"
+      short_complete_utc: "%a. %d %b %Y %H:%M %z"
+      date_complete: "%A, %d %B"
+      time: "%H:%M"
+      month_and_year: "%B %Y"
+    pm: pm
+  mutations:
+    errors:
+      date_conflict: "Ces dates chevauchent un tarif déjà existant : %{period}"
+      file_not_image: "Ce fichier n'est pas une image"
+      already_in_use: "est déjà pris"
+      link_must_begin_with_http: "must begin with http:// or https://"
+      already_a_session_for_this_datetime: "already a session for this date and time"
+      not_in_options: "n'est pas dans les options proposées"
+      publish:
+        one_image_at_least: Ajoutez au moins une image
+        one_bedroom_at_least: Ajoutez au moins une chambre
+        one_price_at_least: Ajoutez au moins un tarif
+        long_description_missing: Ajoutez une description de votre établissement
+        short_description_missing: Ajoutez une description courte pour les résultats de recherche
+  activemodel:
+    errors:
+      models:
+        forms/mutation:
+          attributes:
+            value:
+              float: n'est pas un chiffre

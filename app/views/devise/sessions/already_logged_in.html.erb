@@ -1,0 +1,10 @@
+<% content_for :title, t('.title') %>
+
+<% content_for :dialog_class, 'authentication-modal' %>
+<div class='new_session row justify-content-center text-center'>
+  <%= image_tag('logo.png', class:'my-2 w-50 img-fluid' ) %>
+  <div class='col-12'>
+    <p><%= t('.reload_the_page_to_refresh') %></p>
+    <a class="btn btn-primary mt-4" href="<%= session[:previous_url] || root_path %>"><%= t('.reload_page') %></a>
+  </div>
+</div>
