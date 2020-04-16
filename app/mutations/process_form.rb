@@ -1,3 +1,5 @@
+require 'mutation'
+
 class ProcessForm < Mutations::Command
   include MutationFormSaveHelpers
   include MutationFormValidateHelpers
@@ -55,7 +57,7 @@ class ProcessForm < Mutations::Command
   end
 
   def form
-    @form ||= Forms::Mutation.new(mutation_input_names)
+    @form ||= Mutation.new(mutation_input_names)
   end
 
   def field_checked?(field, value)
