@@ -21,7 +21,7 @@ module Sunrise
       else
         link_to '', html_class do
           raw [
-                content_tag('span', label, class: 'd-none d-sm-inline'),
+                content_tag('span', label, class: 'd-inline'),
                 (fa_icon('angle-down') if show_icon)
               ].compact.join(' ')
         end
@@ -47,7 +47,7 @@ module Sunrise
       else
         link_to '', html_class do
           raw [
-                content_tag('span', label, class: 'd-none d-sm-inline'),
+                content_tag('span', label, class: 'd-inline'),
                 (fa_icon('angle-up') if show_icon)
               ].compact.join(' ')
         end

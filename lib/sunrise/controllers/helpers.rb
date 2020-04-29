@@ -18,7 +18,7 @@ module Sunrise
         def set_device_type
           request.variant = :phone if request_from_mobile?
         end
-
+''
         def request_from_mobile?
           browser.device.mobile?
         end
