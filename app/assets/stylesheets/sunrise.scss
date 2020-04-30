@@ -8,3 +8,47 @@
   filter: blur(8px);
   -webkit-filter: blur(8px);
 }
+
+/// CONTENTS ///
+.modal-dialog.contents {
+  max-width: 800px;
+  .content-text-fields {
+    .note-toolbar .note-btn {
+      background: #fff;
+      border: solid 1px #ccc;
+      padding: 0.28rem 0.65rem;
+      min-width: initial;
+      border-top: 0px;
+    }
+
+    .note-popover .popover-content,
+    .note-toolbar {
+      padding: 0;
+    }
+
+    .note-popover .popover-content > .note-btn-group,
+    .note-toolbar > .note-btn-group {
+      margin: -1px;
+      margin-top: 0px;
+      margin-left: 0px;
+    }
+
+    .note-editor.note-frame,
+    .note-editor.note-airframe {
+      border: 1px solid #ccc;
+    }
+
+    .note-editor.is-invalid {
+      border-color: red;
+    }
+
+    .note-editable {
+      ul,
+      ol,
+      li {
+        list-style: inside;
+      }
+    }
+  }
+
+}

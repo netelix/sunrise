@@ -1,0 +1,19 @@
+<div class="content-text-fields">
+  <% mutation_form.locales_with_current_first.each_with_index do |lang, index| %>
+    <%
+      wrapper_class = "description_#{lang}"
+      open = mutation_form.form.errors[lang].present? || index.zero?
+    %>
+    <label class="d-block border-bottom mt-2">
+      <%= t('.text_in', locale_name: t("locales.#{lang}")) %>
+      - <span class="cursor-pointer normal">
+        <%= toggle_button_show wrapper_class, open, t('.see') %>
+      <%= toggle_button_hide wrapper_class, open, t('.hide') %>
+        </span>
+    </label>
+
+    <%= toggle_content(wrapper_class, open) do %>
+      <%= form.text_area "content_#{lang}", hide_label: true, id: "content_#{lang}" %>
+    <% end %>
+  <% end %>
+</div>

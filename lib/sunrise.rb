@@ -17,10 +17,14 @@ module Sunrise
   end
 
   module Models
-    autoload :Fixtureable,    'sunrise/models/fixtureable'
-    autoload :Nameable,       'sunrise/models/nameable'
-    autoload :Name,           'sunrise/models/name'
-    autoload :User,           'sunrise/models/user'
+    autoload :Fixtureable,        'sunrise/models/fixtureable'
+    autoload :Nameable,           'sunrise/models/nameable'
+    autoload :Name,               'sunrise/models/name'
+    autoload :Nameable,           'sunrise/models/nameable'
+    autoload :Content,            'sunrise/models/content'
+    autoload :Contentable,        'sunrise/models/contentable'
+    autoload :Page,               'sunrise/models/page'
+    autoload :User,               'sunrise/models/user'
   end
 
   module SpecHelpers

@@ -22,6 +22,15 @@ class Mutation
     end
   end
 
+  def initialize_contents(contentable)
+    I18n.available_locales.map do |locale|
+      send(
+          "content_#{locale}=",
+          contentable&.localized_content(locale)
+      )
+    end
+  end
+
   def initialize_names(nameable)
     I18n.available_locales.map do |locale|
       send("name_#{locale}=", nameable&.names.find_by_lang(locale)&.label)

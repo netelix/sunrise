@@ -20,6 +20,16 @@ module MutationFormSaveHelpers
       end
     end
 
+    def save_contents(contentable)
+      I18n.available_locales.each do |locale|
+        ::Contentables::SetContent.run!(
+          contentable: contentable,
+          data: send("content_#{locale}"),
+          locale: locale
+        )
+      end
+    end
+
     def save_attributes_values(attributable, type, attribute_keys)
       attributes_keys_with_values =
         attribute_keys.map { |key| [key, send(key)] }.reject do |_, value|

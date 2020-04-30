@@ -21,6 +21,12 @@ module Sunrise
             &.label || default_name
         end
 
+        def edit_name_path
+          url_helpers.names_edit_path(
+              nameable_type: self.class.name, nameable_id: id
+          )
+        end
+
         def default_name
           'missing name'
         end

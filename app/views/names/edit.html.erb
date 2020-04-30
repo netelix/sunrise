@@ -1,0 +1,4 @@
+<% content_for :title, t('.title') %>
+<%= ajax_modal_form(notice_message: t('.success'), error_message: t('.error')) do |form| %>
+  <%= render 'names/text_fields', form: form %>
+<% end %>

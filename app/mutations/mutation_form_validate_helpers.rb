@@ -7,6 +7,11 @@ module MutationFormValidateHelpers
       add_error(field, :empty) if field_empty?(field)
     end
 
+    def validate_presence_of_current_locale_content
+      field = "content_#{locales_with_current_first.first}"
+      add_error(field, :empty) if field_empty?(field)
+    end
+
     def validate_presence_of_current_locale_name
       field = "name_#{locales_with_current_first.first}"
       add_error(field, :empty) if field_empty?(field)
