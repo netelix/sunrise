@@ -11,7 +11,7 @@ module Sunrise
         end
 
         def html_content
-          content.html_safe
+          content&.html_safe
         end
 
         def edit_content_path

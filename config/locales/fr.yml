@@ -37,12 +37,26 @@ fr:
       edit:
         title_new: Créer un sport
         title_edit: Modifier le sport
-  names:
+  contents:
+    edit:
+      title: Modifier les contenus
+      success: Les contenus ont bien été enregistrés
+      error: Les contenus n'ont pas été enregistrés. Veuillez corriger les erreurs ci-dessous
     text_fields:
-      name_in: Nom en %{locale_name}
-      translation_in: Traduction en %{locale_name}
-      see: Traductions
-      hide: Masquer les traductions
+      text_in: Contenu en %{locale_name}
+      see: Voir
+      hide: Masquer
+  images:
+    index:
+      title: Modifier les images
+      add_delete_and_order_images: Pour ajouter des images, faites les glisser en bas de cette fenêtre. Pour les réorganiser, cliquez sur une image et glissez-la à la position souhaitée
+      click_here_to_send_images: Cliquez ici pour envoyer des images
+      or_drag_your_images_here: Ou glissez vos images ici !
+  names:
+    edit:
+      title: Modifier les titres
+      success: Les textes ont bien été enregistrés
+      error: Les textes n'ont pas été enregistrés. Veuillez corriger les erreurs ci-dessous(
   devise:
     sessions:
       new:
