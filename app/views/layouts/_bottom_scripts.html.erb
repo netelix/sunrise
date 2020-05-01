@@ -1,0 +1,13 @@
+<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "Organization",
+			"url": "https://<%= ENV['DOMAIN'] %>",
+			"logo": "<%= image_path(Rails.application.config.logo_path) %>",
+			"contactPoint": [{
+				"@type": "ContactPoint",
+				"telephone": "<%= Rails.application.config.customer_service_phone %>",
+				"contactType": "customer service"
+			}]
+		}
+</script>

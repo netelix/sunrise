@@ -34,5 +34,9 @@ module Sunrise
           data: { confirm: t('shared.confirm_delete_message') }
       }
     end
+
+    def content_for_metas(contents)
+      contents.each{ |key, value| content_for(key, value) }
+    end
   end
 end
