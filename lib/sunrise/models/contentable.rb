@@ -10,8 +10,8 @@ module Sunrise
           contents.where(locale: I18n.locale).first&.data
         end
 
-        def html_content
-          content&.html_safe
+        def html_content(options = {})
+          content&.html_safe || options[:default]
         end
 
         def edit_content_path

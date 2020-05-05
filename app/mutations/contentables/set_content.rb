@@ -12,6 +12,7 @@ module Contentables
       else
         existing_content&.update(data: data) || existing_contents.create!(data: data)
       end
+      contentable.touch
     end
 
     def existing_content
