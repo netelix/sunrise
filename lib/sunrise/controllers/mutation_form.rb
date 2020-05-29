@@ -34,7 +34,7 @@ module Sunrise
 
         def manage_mutation_form_outcome(outcome)
           if outcome.success?
-            after_process_form_success
+            after_process_form_success(outcome)
           else
             render after_mutation_process_failed_template
           end
@@ -48,7 +48,7 @@ module Sunrise
           @mutation_form ||= mutation_form_class.new(initialize_values)
         end
 
-        def after_process_form_success
+        def after_process_form_success(outcome = nil)
           render after_mutation_process_template
         end
 

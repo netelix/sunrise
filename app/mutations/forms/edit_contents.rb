@@ -1,5 +1,5 @@
 module Forms
-  class EditContents < ProcessForm
+  class EditContents < Sunrise::Mutations::ProcessForm
     required do
       duck :contentable
       string :content_fr, empty: true

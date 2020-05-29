@@ -1,5 +1,5 @@
 module Forms
-  class EditNames < ProcessForm
+  class EditNames < Sunrise::Mutations::ProcessForm
     required do
       duck :nameable
       string :name_fr, empty: true

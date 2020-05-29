@@ -27,8 +27,11 @@ module Sunrise
     autoload :User,               'sunrise/models/user'
   end
 
-  module SpecHelpers
+  module Mutations
+    autoload :ProcessForm,        'sunrise/mutations/process_form'
+  end
 
+  module SpecHelpers
     autoload :DeviseFeature,   'sunrise/spec_helpers/devise_feature'
     autoload :UserDevices,     'sunrise/spec_helpers/user_devices'
     autoload :ModalForm,       'sunrise/spec_helpers/modal_form'
