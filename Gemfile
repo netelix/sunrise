@@ -1,3 +1,12 @@
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in sunrise.gemspec
+gemspec
+
+gem "rake", "~> 12.0"
+gem "rspec", "~> 3.0"
+
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -35,77 +44,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'sidekiq'
-gem 'kaminari' # pagination
-gem 'browser'
-gem 'font-awesome-rails'
-gem 'bootstrap_form', '~> 4.0'
-gem 'mutations'
-gem 'geocoder'
-gem 'i18n'
-gem 'rails-i18n', '~> 5.1'
-gem 'composite_primary_keys', '=11.2.0'
-gem 'cancancan'
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
-
-group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem 'codacy-coverage', require: false # for reporting test coverage
-  gem 'launchy' # to open screenshots
-  gem 'rails-controller-testing' # Brings back `assigns` and `assert_template`
-  gem 'rspec_junit_formatter' # Formatted used for CircleCI
-  gem 'rspec-retry' # some specs fail randomly in CI
-  gem 'simplecov', require: false # test coverage
-  gem 'timecop' # to test time-dependent code
-  gem 'vcr' # record and replay HTTP interactions
-  gem 'webmock' # needed for VCR
-  gem 'whenever-test' # testing support for whenever gem
-  gem 'database_cleaner'
-  gem 'capybara-email'
-end
-
-gem 'bootstrap', '~> 4.0.0'
-gem 'devise'
-gem 'high_voltage'
-gem 'jquery-rails'
-gem 'pg'
-gem 'route_translator'
-gem 'jquery-ui-rails'
-gem 'mini_magick'
-gem 'pg_search'
-#gem 'sunrise', git: 'https://github.com/netelix/sunrise'
-gem 'sunrise', path: '~/sunrise/sunrise_idealement'
-
-group :development do
-  gem 'better_errors'
-  gem 'guard-bundler'
-  gem 'guard-rails'
-  gem 'guard-rspec'
-  gem 'hub', :require=>nil
-  gem 'rails_apps_pages'
-  gem 'rails_apps_testing'
-  gem 'rails_layout'
-  gem 'rb-fchange', :require=>false
-  gem 'rb-fsevent', :require=>false
-  gem 'rb-inotify', :require=>false
-  gem 'spring-commands-rspec'
-end
 
 group :development, :test do
   gem 'pry-rails'
@@ -119,4 +57,3 @@ group :test do
   gem 'rspec-rails'
   gem 'figaro'
 end
-
