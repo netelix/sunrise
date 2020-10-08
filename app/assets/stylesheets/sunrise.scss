@@ -9,6 +9,16 @@
   -webkit-filter: blur(8px);
 }
 
+.image-cover {
+  background-size: cover;
+  background-position: center;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+}
+
 /// CONTENTS ///
 .modal-dialog.contents {
   max-width: 800px;

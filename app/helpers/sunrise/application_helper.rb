@@ -20,6 +20,18 @@ module Sunrise
       )
     end
 
+    def image_cover(options, &block)
+      content_tag(
+          :div,
+          'data-bg-src' => options[:url],
+          style: "height: #{options[:height]};",
+          class: "position-relative deferred-bg image-cover #{options[:class]}"
+      ) do
+        ((block_given? ? capture(&block) : '') +
+            fa_icon('spinner spin', style: 'top: 49%; left: 49%', class: 'position-absolute')).html_safe
+      end
+    end
+
     def button_to_delete(content, path, options = {})
       button_to path, delete_params.merge(options) do
         content
