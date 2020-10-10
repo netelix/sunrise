@@ -37,6 +37,22 @@ module Sunrise
         outcome
       end
 
+      def process_with_params(resource, params)
+        process_form(params.require(resource).permit(permitted_params))
+      end
+
+      def form_params(resource, url)
+        {
+          model: form,
+          scope: resource,
+          remote: false,
+          local: true,
+          url: url,
+          method: :post,
+          html: { id: self.class.to_s.underscore.gsub('/', '-').gsub('_', '-') }
+        }
+      end
+
       def success?
         @success == true
       end
@@ -94,6 +110,14 @@ module Sunrise
 
       def unpermitted_form_input_names
         raise "Method 'unpermitted_form_input_names' should be overriden in ProcessForm"
+      end
+
+      def initialize_form_with_model_fields(model, fields)
+        fields.each { |field| form.send("#{field}=", model&.send(field)) }
+      end
+
+      def user_inputs_for_fields(fields)
+        fields.map { |field| [field, send(field)] }.to_h
       end
 
       def locales_with_current_first

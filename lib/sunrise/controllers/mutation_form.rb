@@ -7,7 +7,15 @@ module Sunrise
     module MutationForm
       extend ActiveSupport::Concern
 
+      module ClassMethods
+        def template_for_action(action, template)
+          self.template_for_actions[action] = template
+        end
+      end
+
       included do
+        mattr_accessor :template_for_actions, default: {}
+
         helper_method :mutation_form
         helper_method :form_params
         helper_method :resource
@@ -18,6 +26,7 @@ module Sunrise
 
         def new
           mutation_form.initialize_form
+          render template_for_current_action
         end
 
         def create
@@ -28,6 +37,17 @@ module Sunrise
         def update
           outcome = process_mutation_form
           manage_mutation_form_outcome(outcome)
+        end
+
+        def destroy
+          run_destroy_mutation
+          after_process_form_success
+        rescue Mutations::ValidationException => exception
+          render 'shared/alert_danger', locals: { message: exception.message }
+        end
+
+        def template_for_current_action
+          self.template_for_actions[params[:action].to_sym]
         end
 
         protected
@@ -41,7 +61,10 @@ module Sunrise
         end
 
         def process_mutation_form
-          mutation_form.process_form(update_params.merge(initialize_values))
+          process_that_mutation_form(
+            mutation_form,
+            update_params.merge(initialize_values)
+          )
         end
 
         def mutation_form
@@ -57,11 +80,12 @@ module Sunrise
         end
 
         def initialize_values
-          raise 'Override me'
+          # override this method to set default values to the form
+          {}
         end
 
         def resource
-          raise 'Override me'
+          raise "You must define the method 'resource' for this controller"
         end
 
         def form_params
@@ -73,32 +97,41 @@ module Sunrise
             url: url_for(controller: params[:controller], action: form_action),
             method: post_method,
             html: {
-              id: mutation_form.class.to_s.underscore.gsub('/', '-').gsub('_', '-')
+              id:
+                mutation_form.class.to_s.underscore.gsub('/', '-').gsub(
+                  '_',
+                  '-'
+                )
             }
           }
         end
 
-        def post_method
-          :put
-        end
-
-        def after_mutation_process_template
+        def after_mutation_process_failed_template
           case params[:action].to_sym
-          when :update, :create
+          when :create
+            template_for_current_action
+          when :update
             :edit
           when :destroy
             'shared/alert_success'
           end
         end
 
-        def after_mutation_process_failed_template
+        def after_mutation_process_template
           case params[:action].to_sym
-          when :create
-            :new
-          when :update
-            :edit
+          when :update, :create
+            template_for_current_action
           when :destroy
             'shared/alert_success'
+          end
+        end
+
+        def post_method
+          case params[:action].to_sym
+          when :new
+            :post
+          when :edit, :update
+            :put
           end
         end
 
