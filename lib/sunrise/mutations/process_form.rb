@@ -5,6 +5,13 @@ module Sunrise
       include MutationFormSaveHelpers
       include MutationFormValidateHelpers
 
+      class << self
+        attr_reader :form_scope
+        define_method("scope") do |v|
+          @form_scope = v
+        end
+      end
+
       def run
         form.attributes = inputs
         add_errors_to_form
@@ -37,14 +44,14 @@ module Sunrise
         outcome
       end
 
-      def process_with_params(resource, params)
-        process_form(params.require(resource).permit(permitted_params))
+      def process_with_params(params)
+        process_form(params.require(self.class.form_scope).permit(permitted_params))
       end
 
-      def form_params(resource, url)
+      def form_params(url)
         {
           model: form,
-          scope: resource,
+          scope: self.class.form_scope,
           remote: false,
           local: true,
           url: url,
@@ -108,15 +115,16 @@ module Sunrise
         input_filters.optional_inputs.merge(input_filters.required_inputs)
       end
 
+      # Fields defined here will be filtered
       def unpermitted_form_input_names
-        raise "Method 'unpermitted_form_input_names' should be overriden in ProcessForm"
+        []
       end
 
       def initialize_form_with_model_fields(model, fields)
         fields.each { |field| form.send("#{field}=", model&.send(field)) }
       end
 
-      def user_inputs_for_fields(fields)
+      def user_inputs_for_fields(*fields)
         fields.map { |field| [field, send(field)] }.to_h
       end
 

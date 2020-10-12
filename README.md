@@ -22,7 +22,90 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Using sunrise to manage forms with Mutation pattern
+
+In Sunrise, forms are managed with mutations (https://github.com/cypriss/mutations)
+
+Example
+
+
+### The controller
+
+```ruby
+# the helper_method to pass to the view form_helper
+helper_method :view_form_param
+
+# the action the form will post to
+def the_post_action
+    mutation_form.process_with_params(params)
+
+    render :the_view_to_render
+end
+
+# instantiate the mutation form class
+# pass the default form values to the constructor    
+def mutation_form
+    @mutation_form ||= ::CreateUser.new({})
+end
+
+private
+
+def view_form_param
+    mutation_form.form_params(create_constructor_lead_path)
+end
+```
+
+### The view
+
+```html
+<%= bootstrap_form_with view_form_param do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :email %>
+    <%= f.text_field :phone %>
+    <%= f.button 'Submit' %>
+<% end %>
+```
+
+### The mutation
+
+```ruby
+class CreateUser < Sunrise::Mutations::ProcessForm
+    # define the required fields
+    required do
+        string :name
+        string :email
+        string :gender
+    end
+    
+    # define the optional fields
+    optional do
+        string :phone 
+    end
+    
+    scope :user
+    
+    # define the validations for the form
+    def validate
+        # user input is a available option
+        validate_in_options(:gender)
+        
+        # add a custom error on the field you want
+        if error_on_the_name?
+            add_error(:name, :custom, 'There is an error !')
+        end
+    end
+    
+    # define what happen once the form is submitted and validated
+    def execute
+        # get the submitted values for those fields
+        values = user_inputs_for_fields(:name, :email, :phone)
+        
+        # do something with them
+        User.create!(values)
+    end
+end
+
+```
 
 ## Development
 
