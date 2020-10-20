@@ -7,9 +7,7 @@ module Sunrise
 
       class << self
         attr_reader :form_scope
-        define_method("scope") do |v|
-          @form_scope = v
-        end
+        define_method('scope') { |v| @form_scope = v }
       end
 
       def run
@@ -44,19 +42,26 @@ module Sunrise
         outcome
       end
 
-      def process_with_params(params)
-        process_form(params.require(self.class.form_scope).permit(permitted_params))
+      def scope
+        self.class.form_scope || :mutation
       end
 
-      def form_params(url)
+      def process_with_params(params)
+        process_form(params.require(scope).permit(permitted_params))
+      end
+
+      def form_params(url, modal: modal = false)
         {
           model: form,
-          scope: self.class.form_scope,
-          remote: false,
-          local: true,
+          scope: scope,
+          remote: !modal,
+          local: modal,
           url: url,
           method: :post,
-          html: { id: self.class.to_s.underscore.gsub('/', '-').gsub('_', '-') }
+          html: {
+            id: self.class.to_s.underscore.gsub('/', '-').gsub('_', '-'),
+            data: { modal: modal, remote: modal }
+          }
         }
       end
 
