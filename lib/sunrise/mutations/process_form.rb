@@ -21,11 +21,18 @@ module Sunrise
         return unless has_errors?
 
         @errors.each do |field, error|
+          puts "MutationError: unvalid value for field ':#{field}' : #{error.message}"
           if error.symbolic == :custom
             form.errors.add(field, error.message)
           else
             form.errors.add(field, error.symbolic)
           end
+        end
+      end
+
+      def set_default_values
+        default_values.each do |key, value|
+          form.send("#{key}=", value)
         end
       end
 
@@ -67,6 +74,12 @@ module Sunrise
 
       def success?
         @success == true
+      end
+
+      # Instance methods
+      def initialize(*args)
+        super(args.first)
+        set_default_values
       end
 
       def reinitialize(*args)
