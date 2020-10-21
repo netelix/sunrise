@@ -42,7 +42,7 @@ DeferredImages =
     };
 
 if (typeof Turbolinks != "undefined") {
-  $(document).on("turbolinks:load", function() {
+  $(document).on("turbolinks:load ajax_modal:load", function() {
     DeferredImages.initialize();
   });
   $(document).on("turbolinks:before-cache", function() {

@@ -76,6 +76,7 @@ fr:
       edit:
         title: Créer un nouveau mot de passe
         save: Enregistrer
+      send_instructions: "Vous recevrez des instruction par email dans quelques instants"
     shared:
       links:
         forgot_your_password: Mot de passe oublié ?
