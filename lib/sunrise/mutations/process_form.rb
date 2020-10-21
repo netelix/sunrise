@@ -54,7 +54,7 @@ module Sunrise
       end
 
       def process_with_params(params)
-        process_form(params.require(scope).permit(permitted_params))
+        process_form(inputs.merge(params.require(scope).permit(permitted_params)))
       end
 
       def form_params(url, modal: modal = false)
