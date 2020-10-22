@@ -36,6 +36,12 @@ module Sunrise
         end
       end
 
+      # override this method to set default values to the form
+      def default_values
+        {}
+      end
+
+      # @deprecated use default_values
       def initialize_form
         raise 'This method must be overriden'
       end
@@ -78,7 +84,7 @@ module Sunrise
 
       # Instance methods
       def initialize(*args)
-        super(args.first)
+        super(args.first || {})
         set_default_values
       end
 
