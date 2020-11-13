@@ -61,9 +61,8 @@ module Sunrise
         end
 
         def process_mutation_form
-          process_that_mutation_form(
-            mutation_form,
-            update_params.merge(initialize_values)
+          mutation_form.process_with_params(
+            params.merge(initialize_values)
           )
         end
 
