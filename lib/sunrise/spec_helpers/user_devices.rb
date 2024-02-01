@@ -6,7 +6,7 @@ Capybara.register_driver :chrome_desktop do |app|
   }
   Capybara::Selenium::Driver.new(
     app,
-    browser: :chrome, desired_capabilities: capabilities
+    browser: :chrome, capabilities: capabilities
   )
 end
 Capybara.register_driver :chrome_android_phone do |app|
@@ -18,7 +18,7 @@ Capybara.register_driver :chrome_android_phone do |app|
   }
   Capybara::Selenium::Driver.new(
     app,
-    browser: :chrome, desired_capabilities: capabilities
+    browser: :chrome, capabilities: capabilities
   )
 end
 CHROME_DESKTOP = { name: :chrome_desktop, width: 1_280, height: 1_000 }.freeze
