@@ -36,7 +36,6 @@ module Sunrise
     autoload :ModalForm,       'sunrise/spec_helpers/modal_form'
 
     if Rails.env.test?
-      require 'sunrise/spec_helpers/user_devices'
       require 'sunrise/spec_helpers/devices_helper'
       require 'sunrise/spec_helpers/feature_spec_helpers'
       require 'sunrise/spec_helpers/sidekiq'
