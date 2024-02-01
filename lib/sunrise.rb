@@ -33,7 +33,6 @@ module Sunrise
 
   module SpecHelpers
     autoload :DeviseFeature,   'sunrise/spec_helpers/devise_feature'
-    autoload :UserDevices,     'sunrise/spec_helpers/user_devices'
     autoload :ModalForm,       'sunrise/spec_helpers/modal_form'
 
     if Rails.env.test?
